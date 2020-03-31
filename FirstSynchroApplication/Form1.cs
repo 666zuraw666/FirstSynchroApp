@@ -18,29 +18,32 @@ namespace FirstSynchroApplication
         }
 
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            int tmp1 = (int)numericUpDown1.Value;
-            int tmp2 = (int)numericUpDown3.Value;
+            long tmp1 = (long)numericUpDown1.Value;
+            long tmp2 = (long)numericUpDown3.Value;
             tmp1++;
             tmp2++;
             numericUpDown1.Value = tmp1;
             numericUpDown3.Value = tmp2;
+            Console.WriteLine(long.MaxValue);
 
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
+            if(numericUpDown1.Value != numericUpDown3.Value)
+            {
+                numericUpDown3.Value = numericUpDown1.Value;
+            }
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+            if(numericUpDown1.Value != numericUpDown3.Value)
+            {
+                numericUpDown1.Value = numericUpDown3.Value;
+            }
 
         }
 
@@ -48,5 +51,7 @@ namespace FirstSynchroApplication
         {
 
         }
+
+
     }
 }

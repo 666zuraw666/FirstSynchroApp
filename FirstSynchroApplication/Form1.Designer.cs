@@ -49,8 +49,8 @@
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(223, 150);
             this.numericUpDown1.Maximum = new decimal(new int[] {
-            -1486618624,
-            232830643,
+            -1,
+            2147483647,
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
@@ -62,13 +62,14 @@
             // 
             this.numericUpDown3.Location = new System.Drawing.Point(223, 176);
             this.numericUpDown3.Maximum = new decimal(new int[] {
-            -1486618624,
-            232830643,
+            -1,
+            2147483647,
             0,
             0});
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(319, 20);
             this.numericUpDown3.TabIndex = 5;
+            this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
             // 
             // Form1
             // 
