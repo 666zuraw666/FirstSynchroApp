@@ -20,13 +20,26 @@ namespace FirstSynchroApplication
 
         private void button1_Click(object sender, EventArgs e)
         {
-            long tmp1 = (long)numericUpDown1.Value;
-            long tmp2 = (long)numericUpDown3.Value;
-            tmp1++;
-            tmp2++;
-            numericUpDown1.Value = tmp1;
-            numericUpDown3.Value = tmp2;
-            Console.WriteLine(long.MaxValue);
+            //if (numericUpDown1.Value < 9223372036854775807 || numericUpDown3.Value < 9223372036854775807)
+            //{
+                try
+                {
+                    long tmp1 = (long)numericUpDown1.Value;
+                    long tmp2 = (long)numericUpDown3.Value;
+                    tmp1++;
+                    tmp2++;
+                    numericUpDown1.Value = tmp1;
+                    numericUpDown3.Value = tmp2;
+                    Console.WriteLine(long.MaxValue);
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message + "\n Maksymalna wartosc to 9223372036854775807");
+                    numericUpDown1.Value = 9223372036854775807;
+                    numericUpDown3.Value = 9223372036854775807;
+                }
+           // }
+
 
         }
 
@@ -35,7 +48,9 @@ namespace FirstSynchroApplication
             if(numericUpDown1.Value != numericUpDown3.Value)
             {
                 numericUpDown3.Value = numericUpDown1.Value;
+                numericUpDown3.Refresh();
             }
+
         }
 
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
@@ -43,6 +58,7 @@ namespace FirstSynchroApplication
             if(numericUpDown1.Value != numericUpDown3.Value)
             {
                 numericUpDown1.Value = numericUpDown3.Value;
+                numericUpDown1.Refresh();
             }
 
         }
