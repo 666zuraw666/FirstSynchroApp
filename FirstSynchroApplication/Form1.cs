@@ -30,7 +30,6 @@ namespace FirstSynchroApplication
                    tmp2++;
                    numericUpDown1.Value = tmp1;
                    numericUpDown3.Value = tmp2;
-                   Console.WriteLine(long.MaxValue);
                }
                catch (Exception exception)
                {
